@@ -38,6 +38,7 @@ dependencies:
   carousel_slider: ^4.2.1
   youtube_player_flutter: ^8.1.2
   flutter_svg: ^2.0.7
+  rive: ^0.11.14
 
 dev_dependencies:
   flutter_test:

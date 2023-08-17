@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:mnc/tabs/events_tab.dart';
 import 'package:mnc/tabs/home_tab.dart';
+import 'package:rive/rive.dart';
 import '../tabs/about_us_tab.dart';
 import '../tabs/clubs_societies_tab.dart';
 
@@ -18,6 +21,29 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Stack(
         alignment: Alignment.bottomCenter,
         children: [
+          Positioned(
+            width: MediaQuery.of(context).size.width * 1.7,
+            left: 100,
+            bottom: 100,
+            child: Image.asset(
+              "assets/Spline.png",
+            ),
+          ),
+          Positioned.fill(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+              child: const SizedBox(),
+            ),
+          ),
+          const RiveAnimation.asset(
+            "assets/shapes.riv",
+          ),
+          Positioned.fill(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
+              child: const SizedBox(),
+            ),
+          ),
           if(num==1) const HomeTab(),
           if(num==2) Clubs(),
           if(num==3) const Events(),
