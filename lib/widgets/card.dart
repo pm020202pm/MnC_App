@@ -16,7 +16,6 @@ class IntroCard extends StatelessWidget {
       child: Container(
         alignment: Alignment.centerLeft,
         height: cardHeight,
-        // width: (size.width/2.1),
         decoration: BoxDecoration(
           color: Colors.grey[100],
           borderRadius: BorderRadius.circular(12),
@@ -24,7 +23,7 @@ class IntroCard extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
           child: Row(
-            // mainAxisSize: MainAxisSize.,
+            mainAxisSize: MainAxisSize.max,
             children: [
               Container(
                 height: imageHeight,
@@ -45,7 +44,8 @@ class IntroCard extends StatelessWidget {
                   Text(name, style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800, color: Colors.grey[800]),),
                   if(position!=null) Text(position!, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 12, color: Colors.grey[500]),),
                 ],
-              )
+              ),
+              // Spacer(flex: 1,),
             ],
           ),
         ),

@@ -73,6 +73,7 @@ class _ClubsState extends State<Clubs> {
                       BigCard(imageUrl: 'assets/mclub.png', name: 'MUSIC CLUB', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: cultText, subName: subCult, radius: 16, color: Colors.blue[200],),
                       BigCard(imageUrl: 'assets/photo.png', name: 'PHOTOGRAPHY', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: cultText, subName: subCult, radius: 16, color: Colors.green[300],),
                       BigCard(imageUrl: 'assets/qc.png', name: 'QUIZ CLUB', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: cultText, subName: subCult, radius: 16, color: Colors.blue[400],),
+                      SizedBox(height: 100,)
                     ],
                   ),
                 ),
@@ -87,6 +88,7 @@ class _ClubsState extends State<Clubs> {
                   BigCard(imageUrl: 'assets/hss.png', name: 'HSS',  imageHeight: 140, imageWidth: 300, cardHeight: 100, text: montageText, subName: subMontage, radius: 16, color: Colors.purple[300],),
                   BigCard(imageUrl: 'assets/hh.png', name: 'HUMOUR HOUSE', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: cultText, subName: subCult, radius: 16, color: Colors.black,),
                   BigCard(imageUrl: 'assets/sfs.png', name: 'SFS', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: cultText, subName: subCult, radius: 16, color: Colors.yellow[800],),
+                  SizedBox(height: 100,)
                 ],
               ),
             ),
