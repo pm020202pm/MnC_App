@@ -9,6 +9,7 @@ String subFreshers= "\“Every great artist started as an amateur.\”";
 String subImpression = "\“Culture is coded wisdom.\”";
 String subMontage = "\"Art is an effort to create, beside a real world, a more humane world.\"";
 String subCult = "\“Culture does not make people. People make culture.\”";
+late String userName;
 
 
 

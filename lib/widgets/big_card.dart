@@ -3,10 +3,11 @@ import 'package:mnc/pages/clubs_detail_page.dart';
 
 import '../pages/details_page.dart';
 class BigCard extends StatelessWidget {
-  BigCard({Key? key, required this.imageUrl, required this.name, required this.imageHeight, required this.imageWidth, required this.cardHeight, this.position, required this.text, required this.subName, this.color, required this.radius}) : super(key: key);
+  BigCard({Key? key, required this.imageUrl, required this.name, required this.imageHeight, required this.imageWidth, required this.cardHeight, this.position, required this.text, required this.subName, this.color, required this.radius, required this.clubName}) : super(key: key);
   final String imageUrl;
   final String name;
   final String subName;
+  final String clubName;
   final String text;
   final double imageHeight;
   final double imageWidth;
@@ -21,7 +22,8 @@ class BigCard extends StatelessWidget {
       child: FittedBox(
         fit: BoxFit.none,
         child: InkWell(
-          onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> ClubDetail(image: imageUrl, name: name, text: text, subName: subName,)));},
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> ClubDetail(image: imageUrl, name: name, text: text, subName: subName, clubName: clubName,)));},
           child: Container(
             decoration: BoxDecoration(
               color: Colors.grey[300],

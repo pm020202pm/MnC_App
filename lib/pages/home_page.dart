@@ -55,14 +55,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 boxShadow:  [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.6),
-                    spreadRadius: 3,
-                    blurRadius: 12,
+                    spreadRadius: 1,
+                    blurRadius: 20,
                     offset: Offset(0, 3), // changes position of shadow
                   ),
                 ],
               ),
               height: 60,
-              width: 424,
+              width: 350,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

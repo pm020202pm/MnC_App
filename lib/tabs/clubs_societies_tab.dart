@@ -64,15 +64,15 @@ class _ClubsState extends State<Clubs> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      BigCard(imageUrl: 'assets/book.jpg', name: 'BOOK CLUB', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: galaxyText, subName: subGalaxy, radius: 16,),
-                      BigCard(imageUrl: 'assets/kos.png', name: 'DANCE CLUB', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: freshersText, subName: subFreshers, radius: 16,),
-                      BigCard(imageUrl: 'assets/dna.png', name: 'DNA CLUB',imageHeight: 140, imageWidth: 300, cardHeight: 100, text: impressionText, subName: subImpression, radius: 16,color: Colors.pink[200],),
-                      BigCard(imageUrl: 'assets/fursatmandali.jpg', name: 'DRAMATICS',  imageHeight: 140, imageWidth: 300, cardHeight: 100, text: montageText, subName: subMontage, radius: 16,),
-                      BigCard(imageUrl: 'assets/fac.png', name: 'FINE ARTS CLUB', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: cultText, subName: subCult, radius: 16, color: Colors.black,),
-                      BigCard(imageUrl: 'assets/film.png', name: 'FILM CLUB', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: cultText, subName: subCult, radius: 16, color: Colors.yellow[800],),
-                      BigCard(imageUrl: 'assets/mclub.png', name: 'MUSIC CLUB', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: cultText, subName: subCult, radius: 16, color: Colors.blue[200],),
-                      BigCard(imageUrl: 'assets/photo.png', name: 'PHOTOGRAPHY', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: cultText, subName: subCult, radius: 16, color: Colors.green[300],),
-                      BigCard(imageUrl: 'assets/qc.png', name: 'QUIZ CLUB', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: cultText, subName: subCult, radius: 16, color: Colors.blue[400],),
+                      BigCard(imageUrl: 'assets/book.jpg', name: 'BOOK CLUB', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: galaxyText, subName: subGalaxy, radius: 16, clubName: 'book',),
+                      BigCard(imageUrl: 'assets/kos.png', name: 'DANCE CLUB', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: freshersText, subName: subFreshers, radius: 16, clubName: 'dance',),
+                      BigCard(imageUrl: 'assets/dna.png', name: 'DNA CLUB',imageHeight: 140, imageWidth: 300, cardHeight: 100, text: impressionText, subName: subImpression, radius: 16,color: Colors.pink[200], clubName: 'dna',),
+                      BigCard(imageUrl: 'assets/fursatmandali.jpg', name: 'DRAMATICS',  imageHeight: 140, imageWidth: 300, cardHeight: 100, text: montageText, subName: subMontage, radius: 16, clubName: 'drams',),
+                      BigCard(imageUrl: 'assets/fac.png', name: 'FINE ARTS CLUB', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: cultText, subName: subCult, radius: 16, color: Colors.black, clubName: 'fac',),
+                      BigCard(imageUrl: 'assets/film.png', name: 'FILM CLUB', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: cultText, subName: subCult, radius: 16, color: Colors.yellow[800], clubName: 'film',),
+                      BigCard(imageUrl: 'assets/mclub.png', name: 'MUSIC CLUB', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: cultText, subName: subCult, radius: 16, color: Colors.blue[200], clubName: 'music',),
+                      BigCard(imageUrl: 'assets/photo.png', name: 'PHOTOGRAPHY', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: cultText, subName: subCult, radius: 16, color: Colors.green[300], clubName: 'photo',),
+                      BigCard(imageUrl: 'assets/qc.png', name: 'QUIZ CLUB', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: cultText, subName: subCult, radius: 16, color: Colors.blue[400], clubName: 'quiz',),
                       SizedBox(height: 100,)
                     ],
                   ),
@@ -82,12 +82,12 @@ class _ClubsState extends State<Clubs> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  BigCard(imageUrl: 'assets/anime.png', name: 'ANIME', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: galaxyText, subName: subGalaxy, radius: 16, color: Colors.yellow[800],),
-                  BigCard(imageUrl: 'assets/debsoc1.png', name: 'DEBATING SOCIETY', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: freshersText, subName: subFreshers, radius: 16,),
-                  BigCard(imageUrl: 'assets/ELS.jpeg', name: 'ELS',imageHeight: 140, imageWidth: 300, cardHeight: 100, text: impressionText, subName: subImpression, radius: 16,color: Colors.white,),
-                  BigCard(imageUrl: 'assets/hss.png', name: 'HSS',  imageHeight: 140, imageWidth: 300, cardHeight: 100, text: montageText, subName: subMontage, radius: 16, color: Colors.purple[300],),
-                  BigCard(imageUrl: 'assets/hh.png', name: 'HUMOUR HOUSE', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: cultText, subName: subCult, radius: 16, color: Colors.black,),
-                  BigCard(imageUrl: 'assets/sfs.png', name: 'SFS', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: cultText, subName: subCult, radius: 16, color: Colors.yellow[800],),
+                  // BigCard(imageUrl: 'assets/anime.png', name: 'ANIME', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: galaxyText, subName: subGalaxy, radius: 16, color: Colors.yellow[800],),
+                  // BigCard(imageUrl: 'assets/debsoc1.png', name: 'DEBATING SOCIETY', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: freshersText, subName: subFreshers, radius: 16,),
+                  // BigCard(imageUrl: 'assets/ELS.jpeg', name: 'ELS',imageHeight: 140, imageWidth: 300, cardHeight: 100, text: impressionText, subName: subImpression, radius: 16,color: Colors.white,),
+                  // BigCard(imageUrl: 'assets/hss.png', name: 'HSS',  imageHeight: 140, imageWidth: 300, cardHeight: 100, text: montageText, subName: subMontage, radius: 16, color: Colors.purple[300],),
+                  // BigCard(imageUrl: 'assets/hh.png', name: 'HUMOUR HOUSE', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: cultText, subName: subCult, radius: 16, color: Colors.black,),
+                  // BigCard(imageUrl: 'assets/sfs.png', name: 'SFS', imageHeight: 140, imageWidth: 300, cardHeight: 100, text: cultText, subName: subCult, radius: 16, color: Colors.yellow[800],),
                   SizedBox(height: 100,)
                 ],
               ),

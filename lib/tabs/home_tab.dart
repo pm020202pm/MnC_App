@@ -27,7 +27,7 @@ class _HomeTabState extends State<HomeTab> {
       cardHeight: 100,
       text: galaxyText,
       subName: subGalaxy,
-      radius: 16,
+      radius: 16, clubName: '',
     ),
     BigCard(
       imageUrl: 'assets/kos.png',
@@ -37,7 +37,7 @@ class _HomeTabState extends State<HomeTab> {
       cardHeight: 100,
       text: freshersText,
       subName: subFreshers,
-      radius: 16,
+      radius: 16, clubName: '',
     ),
     BigCard(
       imageUrl: 'assets/dna.png',
@@ -48,7 +48,7 @@ class _HomeTabState extends State<HomeTab> {
       text: impressionText,
       subName: subImpression,
       radius: 16,
-      color: Colors.pink[200],
+      color: Colors.pink[200], clubName: '',
     ),
     BigCard(
       imageUrl: 'assets/fursatmandali.jpg',
@@ -58,7 +58,7 @@ class _HomeTabState extends State<HomeTab> {
       cardHeight: 100,
       text: montageText,
       subName: subMontage,
-      radius: 16,
+      radius: 16, clubName: '',
     ),
   ];
 

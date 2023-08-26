@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "505886963052",
+    "project_id": "mncapp-fc1da",
+    "storage_bucket": "mncapp-fc1da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505886963052:android:31c1848b78b46b69cb2f49",
+        "android_client_info": {
+          "package_name": "com.example.mnc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "505886963052-cq3prqov50efq9h2nevm2vqv03a9f0oc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgO3jPw-o6ah_vKs8nlduzUKCUOJDKg8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505886963052-cq3prqov50efq9h2nevm2vqv03a9f0oc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

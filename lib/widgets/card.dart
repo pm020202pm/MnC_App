@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 class IntroCard extends StatelessWidget {
-  IntroCard({Key? key, required this.imageUrl, required this.name, this.position, required this.imageHeight, required this.imageWidth, required this.cardHeight}) : super(key: key);
+  IntroCard({Key? key, required this.imageUrl, required this.name, this.position, required this.imageHeight, required this.imageWidth, required this.cardHeight, this.fontSize}) : super(key: key);
   final String imageUrl;
   final String name;
   final double imageHeight;
   final double imageWidth;
   final double cardHeight;
+  final double? fontSize;
   late String? position;
 
   @override
@@ -41,7 +42,7 @@ class IntroCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(name, style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800, color: Colors.grey[800]),),
+                  Text(name, style: TextStyle(fontSize: fontSize, fontWeight: FontWeight.w800, color: Colors.grey[800]),),
                   if(position!=null) Text(position!, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 12, color: Colors.grey[500]),),
                 ],
               ),
