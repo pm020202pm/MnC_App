@@ -1,3 +1,12 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:mnc/widgets/misc/big_card.dart';
+class Constants {
+  static const String BASE_URL ='https://fcm.googleapis.com/fcm/send';
+  static const String KEY_SERVER = 'AAAAdck2dWw:APA91bF5TscfpTc8k3M6xzw9X6tMiXRmfrtsMo25h6NCf4ZBmqB8R8ywEyxJjHi9y18ST-qwb0AiOE3nLyFfZ5EHd3-a2gpw1IkAZiq3COC8NVaRfmE1TpRJlNUWGol_OsCO7DyQAppz';
+  static const String SENDER_ID = '505886963052';
+}
 
 String galaxyText = "Galaxy is the inter-Hall cultural championship and also one of the flagship events that are organised by the Media and Cultural Council. It is a series of cultural competitions meant to unleash the cultural rigour of the under-graduate students; and is spread (usually) over a period of 5-7 days in the even semester of every academic year.Galaxy is looked up with a lot of liveliness and enthusiasm on behalf of the undergraduates, who see it as a way to establish the cultural flair of their halls and “prove their worth and dominance” amongst the other halls. Performing their best in the Galaxy is a want for the fresher undergraduates and they fight tooth and nail for all events to ensure that their pools stay the closest to the Galaxy Championship Trophy.Galaxy conducts a plethora of competitions for all existing clubs and some more miscellaneous events. The proper conduction of the Galaxy events require all Halls-of-Residence to be split into 5 pools: Peshwas, Aryans, Shauryas, Kshatriyas and Nawabs. These pools comprises of all the halls including UGs and PGs in the institute developing a bond and spirit of team work between them. The Pool which has the highest points at the end of the events gets the Galaxy Championship Trophy. Each pool is piloted by a team of people headed by the one known as \“Pool Captain\” and guide their respective pools";
 String freshersText = "When a person enters a new university or institution, he/she is likely to face a whirlwind of emotions. We at IIT Kanpur completely understand these emotional pangs and aim to help our freshers in the best way possible.For this, the Media and Cultural Council organises a Freshers’ Night gala within a month of them joining the institute, so as to help them in transforming these negative feelings and emotions into something that is more productive and leads to their erudition.The Freshers’ Nite also marks the very initial association between the freshers and the club. This event plays a chief role in establishing and uniting the freshers with the clubs that they are interested in. It furnishes a window of opportunity for the freshmen to interact with the sophomores and other seniors to enhance their skills. It provides budding artists with a perfect platform to exhibit their flair. The gala event includes performances of all the clubs that come under the council. In fact, it is the freshers themselves who are the charioteers of the event. The Freshers’ Nite provides the perfect opportunity for the new students to feel more confident, and exposure to the various clubs and societies that the council endorses.The event is highly applauded for the way it aims to blend the freshers with their seniors, and also amongst themselves. It is reviewed to be a highly holistic experience, both by the audience as well as the freshmen. The event is received by a highly enthusiastic audience; and has an astonishingly wide reach";
@@ -9,9 +18,32 @@ String subFreshers= "\“Every great artist started as an amateur.\”";
 String subImpression = "\“Culture is coded wisdom.\”";
 String subMontage = "\"Art is an effort to create, beside a real world, a more humane world.\"";
 String subCult = "\“Culture does not make people. People make culture.\”";
-late String userName;
+String userName=' ';
+String userImageUrl=' ';
+String userUid= ' ';
+String admin= 'admin';
 
+String currTime = DateFormat('kk:mm:ss').format(DateTime.now());
+String currDate = DateFormat('d MMM').format(DateTime.now());
 
+bool isLogin=false;
+String defaultImgUrl='https://firebasestorage.googleapis.com/v0/b/traveldost-f6a2d.appspot.com/o/images%2Fprofile.jpg?alt=media&token=6d6b2bfd-068d-44a4-9927-4ee3963c6e1a';
+List<Widget> widgets = [
+  BigCard(imageUrl: 'assets/fullcover/anime.png', name: 'ANIME CLUB', clubName: 'anime'),
+  BigCard(imageUrl: 'assets/fullcover/book.png', name: 'BOOK CLUB', clubName: 'book'),
+  BigCard(imageUrl: 'assets/fullcover/dance.png', name: 'DANCE CLUB',  clubName: 'dance'),
+  BigCard(imageUrl: 'assets/fullcover/debsoc.png', name: 'DEBATING SOCIETY', clubName: 'debsoc'),
+  BigCard(imageUrl: 'assets/fullcover/dna.png', name: 'DNA CLUB', clubName: 'dna'),
+  BigCard(imageUrl: 'assets/fullcover/drams.png', name: 'DRAMATICS CLUB', clubName: 'drams'),
+  BigCard(imageUrl: 'assets/fullcover/els.png', name: 'ENGLISH LITERARY SOCIETY', clubName: 'els'),
+  BigCard(imageUrl: 'assets/fullcover/fac.png', name: 'FINE ARTS CLUB', clubName: 'fac'),
+  BigCard(imageUrl: 'assets/fullcover/film.png', name: 'FILM CLUB', clubName: 'film'),
+  BigCard(imageUrl: 'assets/fullcover/hh.png', name: 'HUMOUR HOUSE', clubName: 'hh'),
+  BigCard(imageUrl: 'assets/fullcover/hss.png', name: 'HINDI SAHITYA SABHA', clubName: 'hss'),
+  BigCard(imageUrl: 'assets/fullcover/mclub.png', name: 'MUSIC CLUB', clubName: 'mclub'),
+  BigCard(imageUrl: 'assets/fullcover/photo.png', name: 'PHOTOGRAPHY CLUB',  clubName: 'photo'),
+  BigCard(imageUrl: 'assets/fullcover/quiz.png', name: 'QUIZ CLUB',  clubName: 'quiz'),
+  BigCard(imageUrl: 'assets/fullcover/sfs.png', name: 'STUDENT FILM SOCIETY',  clubName: 'sfs'),
+];
 
-
-
+List<String> month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

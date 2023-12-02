@@ -28,6 +28,7 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 android {
     namespace "com.example.mnc"
     compileSdkVersion flutter.compileSdkVersion
+//    compileSdkVersion 33
 //    ndkVersion flutter.ndkVersion
     ndkVersion "25.1.8937393"
 
@@ -49,7 +50,7 @@ android {
         applicationId "com.example.mnc"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

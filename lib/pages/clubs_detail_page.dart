@@ -1,18 +1,16 @@
+
 import 'package:flutter/material.dart';
-import 'package:mnc/widgets/club_details/cordi_name.dart';
+import 'package:mnc/widgets/club_details/cordi_list.dart';
 import 'package:mnc/widgets/club_details/future_events.dart';
 import 'package:mnc/widgets/club_details/get_in_touch.dart';
-import 'package:mnc/widgets/club_details/performances.dart';
-
-import '../gradient_text.dart';
-import '../widgets/card.dart';
+import 'package:mnc/widgets/club_details/media_list.dart';
+import '../widgets/misc/big_button.dart';
+import '../widgets/misc/gradient_text.dart';
 class ClubDetail extends StatefulWidget {
-  ClubDetail({Key? key, required this.image, required this.name, required this.subName, required this.text, required this.clubName}) : super(key: key);
+  ClubDetail({Key? key, required this.image, required this.name, required this.clubName}) : super(key: key);
   final String image;
   final String name;
-  final String subName;
   final String clubName;
-  final String text;
 
   @override
   State<ClubDetail> createState() => _ClubDetailState();
@@ -24,57 +22,49 @@ class _ClubDetailState extends State<ClubDetail> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SafeArea(
-        bottom: false,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Hero(
+              tag: Key(widget.image),
+              child: Image.asset('assets/fullcover/${widget.clubName}.png', fit: BoxFit.fitWidth,width: double.infinity, height: 340,)
+            ),
+            const SizedBox(height: 30,),
+            GradientText(
+              text: widget.name,
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w800, color: Colors.green[400]),
+              gradient: const LinearGradient(
+                colors: [Colors.blue, Colors.green, Colors.lightGreen, Colors.purple],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+            ),
+            const SizedBox(height: 50,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Hero(
-                    tag: Key(widget.image),
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(25),
-                        child: Image.asset(widget.image, fit: BoxFit.fill,width: double.infinity, height: 200,)
-                    )
+                BigButton(
+                  colorList: const [Colors.blue, Colors.green, Colors.lightGreen],
+                  onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => FutureEvents(clubName: widget.clubName,)));},
+                  children: const [Text('Events',style: TextStyle(fontSize: 20 , fontWeight: FontWeight.w800, color: Colors.white), ),]
                 ),
-                const SizedBox(height: 20,),
-                GradientText(
-                  text: widget.name,
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w800, color: Colors.green[400]),
-                  gradient: const LinearGradient(
-                    colors: [Colors.blue, Colors.green, Colors.lightGreen, Colors.purple],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
+                BigButton(
+                  colorList: const [Colors.blue, Colors.green, Colors.orange],
+                  onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => MediaList(clubName: widget.clubName,)));},
+                 children: const [Text('Media',style: TextStyle(fontSize: 20 , fontWeight: FontWeight.w800, color: Colors.white), ),]
                 ),
-                GradientText(
-                  text: widget.subName,
-                  style: TextStyle(fontSize: 11, fontWeight: FontWeight.w800, color: Colors.green[400]),
-                  gradient: const LinearGradient(
-                    colors: [Colors.grey, Colors.blue],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                ),
-                const SizedBox(height: 80,),
-                FutureEvents(clubName:  widget.clubName,),
-                const SizedBox(height: 50,),
-                const RecPerformance(),
-                const SizedBox(height: 50,),
-                const Text(
-                  'Meet The Team',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
-                ),
-                CordiName(clubName: widget.clubName),
-                const SizedBox(height: 30,),
-                const InTouch(),
               ],
             ),
-          ),
+            const SizedBox(height: 40,),
+            ClubCordiList(clubName: widget.clubName, name: widget.name,),
+            const SizedBox(height: 40,),
+            InTouch(clubName: widget.clubName,),
+          ],
         ),
       ),
     );
   }
 }
+
+

@@ -1,11 +1,21 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:mnc/tabs/events_tab.dart';
-import 'package:mnc/tabs/home_tab.dart';
-import 'package:rive/rive.dart';
-import '../tabs/about_us_tab.dart';
-import '../tabs/clubs_societies_tab.dart';
+import 'package:gap/gap.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
+import 'package:mnc/functions.dart';
+import 'package:mnc/pages/clubs_page.dart';
+import 'package:mnc/pages/events_page.dart';
+import 'package:mnc/pages/stats_page.dart';
+import 'package:mnc/pages/teams_page.dart';
+import 'package:mnc/pages/timeline_page.dart';
+import 'package:mnc/widgets/club_details/get_in_touch.dart';
+import 'package:mnc/widgets/homepage_comp/homepage_card.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../widgets/homepage_comp/top_banner.dart';
+import '../widgets/homepage_comp/upcoming_poster.dart';
+import '../widgets/misc/big_button.dart';
+import 'media_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -14,154 +24,150 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int num = 1;
+  bool isShowSignInDialog = false;
+  bool isClubClicked =false;
+
+
+  @override
+  void initState() {
+    showRemoteNotification();
+    requestPermission();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      body: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          Positioned(
-            width: MediaQuery.of(context).size.width * 1.7,
-            left: 100,
-            bottom: 100,
-            child: Image.asset(
-              "assets/Spline.png",
+      backgroundColor: Colors.grey[100],
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const TopBanner(),
+            const UpcomingPoster(),
+            const Gap(50),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                TapButton(
+                    onTap: (){pushPage(context, const TeamsPage());},
+                    colorList: const [Colors.blue, Colors.green, Colors.lightGreen],
+                    text: const ['Meet The', 'Team'],
+                    textSize: const [12, 22]
+                ),
+                TapButton(
+                    onTap: (){pushPage(context, const TimeLinePage());},
+                    colorList: [Colors.green.shade500, Colors.blue.shade300],
+                    text: const ["Activity", "Timeline"],
+                    textSize: const [12, 20]
+                ),
+              ],
             ),
-          ),
-          Positioned.fill(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
-              child: const SizedBox(),
+            const Gap(20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                TapButton(
+                    onTap: (){pushPage(context, const MediaPage());},
+                    colorList: const [Colors.blue, Colors.green, Colors.orange],
+                    text: const ["Media", "Collection"],
+                    textSize: const [20, 12]
+                ),
+                TapButton(
+                    onTap: (){pushPage(context, const StatsPage());},
+                    colorList: const [Colors.blue, Colors.green, Colors.orange],
+                    text: const ["Stats", "for nerds"],
+                    textSize: const [20, 12]
+                ),
+              ],
             ),
-          ),
-          const RiveAnimation.asset(
-            "assets/shapes.riv",
-          ),
-          Positioned.fill(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
-              child: const SizedBox(),
-            ),
-          ),
-          if(num==1) const HomeTab(),
-          if(num==2) Clubs(),
-          if(num==3) const Events(),
-          if(num==4) const AboutUs(),
-          Padding(
-            padding: const EdgeInsets.all(6),
-            child: Container(
-              decoration: BoxDecoration(
-                boxShadow:  [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.6),
-                    spreadRadius: 1,
-                    blurRadius: 20,
-                    offset: Offset(0, 3), // changes position of shadow
+            const Gap(50),
+            HomePageCard(
+              onTap: (){pushPage(context, const ClubsPage());},
+              children: [
+                  RotatedBox(
+                    quarterTurns: -1,
+                    child: Text("CLUBS", style: GoogleFonts.bungee(textStyle: TextStyle(fontSize: 30, color: Colors.orange.shade700),)),
                   ),
+                  Lottie.asset('animations/club.json', height: 110),
+                  Icon(Icons.arrow_forward_ios_rounded, size: 40, color: Colors.orange.shade800),
                 ],
-              ),
-              height: 60,
-              width: 350,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+            ),
+            HomePageCard(
+              onTap: (){pushPage(context, const EventsPage());},
                 children: [
-                  Container(
-                    alignment: Alignment.center,
-                    height: 60,
-                    width: 85,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(topLeft: Radius.circular(20), bottomLeft: Radius.circular(20)),
-                      color: (num==1)? Colors.blue[100] : Colors.grey[200],
-                    ),
+                    Icon(Icons.arrow_back_ios_new_rounded, size: 40, color: Colors.orange.shade800),
+                    Lottie.asset('animations/events.json', height: 130),
+                    RotatedBox(
+                        quarterTurns: -1,
+                        child: Text("Events", style: GoogleFonts.bungee(textStyle: TextStyle(fontSize: 30, color: Colors.orange.shade700),))                ),
+                  ],
+            ),
+            Gap(50),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                IconButton(
+                    onPressed: (){
+                      launchUrl(
+                          Uri.parse('https://www.facebook.com/mnciitk/'),
+                          mode: LaunchMode.externalApplication
+                      );
+                    },
+                    icon: Lottie.asset('animations/facebook.json', width: 80)
+                ),
+                IconButton(
+                    onPressed: () {
+                      launchUrl(
+                          Uri.parse('https://www.instagram.com/mnciitk/'),
+                          mode: LaunchMode.externalApplication
+                      );
+                    },
+                    icon: Lottie.asset('animations/instagram.json', width: 80)
+                ),
+              ],
+            ),
+            Gap(10),
+            SizedBox(
+              width: screenSize.width,
+              child: Column(
+                children: [
+                  Text('Copyright © 2023',style: TextStyle(fontSize: 10, fontWeight: FontWeight.w800, color: Colors.grey.shade400), ),
+                  Text('All Rights Reserved by MnC Council.',style: TextStyle(fontSize: 10, fontWeight: FontWeight.w800, color: Colors.grey.shade400), ),
 
-                    child: TextButton(
-                        onPressed: () {
-                          setState(() {
-                            num= 1;
-                          });
-                        },
-                        child: Column(
-                          children: [
-                            Icon((num==1)? Icons.home :Icons.home_outlined),
-                            const Text('Home')
-                          ],
-                        )
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    height: 60,
-                    width: 85,
-                    decoration: BoxDecoration(
-                      // borderRadius: BorderRadius.only(topLeft: Radius.circular(20), bottomLeft: Radius.circular(20)),
-                      color: (num==2)? Colors.blue[100] : Colors.grey[200],
-                    ),
-
-                    child: TextButton(
-                      onPressed: () {
-                        setState(() {
-                          num= 2;
-                        });
-                      },
-                      child: Column(
-                        children: [
-                          Icon((num==2)? Icons.people_alt_rounded :Icons.people_alt_outlined),
-                          Text('Clubs')
-                        ],
-                      )
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.zero,
-                    alignment: Alignment.center,
-                    height: 60,
-                    width: 85,
-                    decoration: BoxDecoration(
-                      color: (num==3)? Colors.blue[100] : Colors.grey[200],
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        setState(() {
-                          num =3;
-                        });
-                      },
-                      child: const Column(
-                        children: [
-                          Icon(Icons.event_note_rounded),
-                          Text('Events')
-                        ],
-                      )
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    height: 60,
-                    width: 85,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(topRight: Radius.circular(20), bottomRight: Radius.circular(20)),
-                      color: (num==4)? Colors.blue[100] : Colors.grey[200],
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        setState(() {
-                          num = 4;
-                        });
-                      },
-                      child: Column(
-                        children: [
-                          Icon((num==4)? Icons.supervised_user_circle : Icons.supervised_user_circle_outlined ),
-                          const Text('About')
-                        ],
-                      )
-                    ),
-                  )
                 ],
               ),
             ),
-          ),
-        ],
+
+            const SizedBox(height: 30,)
+          ],
+        ),
       ),
     );
   }
 }
+
+
+class TapButton extends StatelessWidget {
+  const TapButton({super.key, required this.onTap, required this.colorList, required this.text, required this.textSize});
+  final Function() onTap;
+  final List<Color> colorList;
+  final List<String> text;
+  final List<double> textSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return BigButton(
+      height: 70,
+      align: Alignment.centerLeft,
+      onTap: onTap,
+      colorList: colorList,
+      children: [
+        Text(text[0],style: TextStyle(fontSize: textSize[0], fontWeight: FontWeight.w800, color: Colors.white), ),
+        Text(text[1],style: TextStyle(fontSize: textSize[1], fontWeight: FontWeight.w800, color: Colors.white), ),
+      ],
+    );
+  }
+}
+
