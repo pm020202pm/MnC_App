@@ -1,4 +1,4 @@
-# Media and Cultural Council App
+# MnC App
 
 ## Overview
 
